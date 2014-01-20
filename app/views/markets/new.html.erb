@@ -1,0 +1,11 @@
+<% provide(:title, 'New Market') %>
+<h1>New Market</h1>  
+  
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@market) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Create market", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

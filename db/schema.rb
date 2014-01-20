@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112221119) do
+ActiveRecord::Schema.define(version: 20140118133458) do
+
+  create_table "markets", force: true do |t|
+    t.integer  "rank"
+    t.string   "name"
+    t.string   "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "markets", ["latitude"], name: "index_markets_on_latitude"
+  add_index "markets", ["longitude"], name: "index_markets_on_longitude"
+  add_index "markets", ["rank"], name: "index_markets_on_rank", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

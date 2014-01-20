@@ -1,0 +1,32 @@
+<% provide(:title, 'All markets') %>
+<h1>All markets</h1>
+
+
+
+<table class="table table-hover">
+  
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @markets.each do |market| %>
+    <tr>
+      <td><%= market.rank %></td>
+      <td><%= link_to market.name, market %>
+      <% if current_user.admin? %>|
+                  <%= link_to "delete", market, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+      <% end %></td>
+      
+      <td><%= market.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

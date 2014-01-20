@@ -10,5 +10,10 @@ namespace :db do
                  email: "christine@savardfaire.com",
                  password: "2012zouba",
                  password_confirmation: "2012zouba")
+    Market.create!(name: "New York",
+                 rank: "1",
+                 description: "New York City area",
+                 longitude: "",
+                 latitude: "")
   end
 end
