@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -83,8 +83,20 @@ p {
 
 .navbar-inverse .navbar-inner {
   background-color: #C20000;
- background-image: none;
+  background-image: none;
+  
 }
+
+.navbar .nav > li > a { 
+
+color: AliceBlue; 
+}
+
+.navbar .nav > li > a:focus, 
+.navbar .nav > li > a:hover { 
+background-color: silver; 
+color: white; 
+} 
 
 /* footer */
 

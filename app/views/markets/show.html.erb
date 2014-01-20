@@ -4,9 +4,9 @@
     <section>
       <h1>
         <%= @market.name %>
-        <%= @market.rank %>
-        <%= @market.description %>
       </h1>
+      <p>Market Rank: <%= @market.rank %></p>
+      <p>Description: <%= @market.description %></p>
       <%= button_to "Edit", edit_market_path(@market), :class => "btn btn-primary", :method => :get %>
     </section>
   </aside>
