@@ -17,10 +17,6 @@
     <tr>
       <td><%= market.rank %></td>
       <td><%= link_to market.name, market %>
-      <% if current_user.admin? %>|
-                  <%= link_to "delete", market, method: :delete,
-                                  data: { confirm: "You sure?" } %>
-      <% end %></td>
       
       <td><%= market.description %></td>
     </tr>

@@ -153,7 +153,7 @@ aside {
       font-size: 1.4em;
       text-align: left;
       letter-spacing: -1px;
-      margin-bottom: 3px;
+      margin-bottom: 12px;
       margin-top: 0px;
     }
   }
@@ -204,5 +204,17 @@ input {
 
 .table {
   width: 50%;
+  
+}
+
+/* maps */
+
+#map label { width: auto; display:inline; }
+#map img { max-width: none; }
+
+.map1 {
+  
+  float: right;
+  
   
 }

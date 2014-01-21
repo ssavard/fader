@@ -8,7 +8,7 @@ class MarketsController < ApplicationController
   
   def index
     #@markets = Market.all
-    @markets = Market.paginate(page: params[:page])
+    @markets = Market.paginate(page: params[:page]).order('rank ASC')
   end
 
   
@@ -44,6 +44,8 @@ class MarketsController < ApplicationController
     flash[:success] = "Market deleted."
     redirect_to markets_url
   end
+  
+  
 
 private
 
