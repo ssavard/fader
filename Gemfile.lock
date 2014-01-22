@@ -4,6 +4,13 @@ GIT
   specs:
     database_cleaner (1.2.0)
 
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 44b0448193d4856847e47fb2a245bdd51a4bb2fa
+  specs:
+    jquery-datatables-rails (1.12.2)
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -193,6 +200,7 @@ DEPENDENCIES
   gmaps4rails
   growl (= 1.0.3)
   jbuilder (= 1.0.2)
+  jquery-datatables-rails!
   jquery-rails (= 3.0.4)
   pg (= 0.15.1)
   rails (= 4.0.2)

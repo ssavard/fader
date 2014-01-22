@@ -9,6 +9,13 @@ class MarketsController < ApplicationController
   def index
     #@markets = Market.all
     @markets = Market.paginate(page: params[:page]).order('rank ASC')
+    @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
+     marker.lat market.latitude
+     marker.lng market.longitude
+     marker.title market.rank.to_s
+     marker.infowindow market.name
+    end
+    
   end
 
   
