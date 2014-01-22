@@ -203,7 +203,10 @@ input {
 /* market table */
 
 #marketTable {
-  width: 50%;
+  position:absolute;
+  right:30px;
+  top:100px;
+  width: 200px;
 }
 
 /* maps */
@@ -213,7 +216,7 @@ input {
 
 .map1 {
   
-  float: right;
+  
   
   
 }
