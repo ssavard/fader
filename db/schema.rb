@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118133458) do
+ActiveRecord::Schema.define(version: 20140123025052) do
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "web"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "groups", ["latitude"], name: "index_groups_on_latitude"
+  add_index "groups", ["longitude"], name: "index_groups_on_longitude"
+  add_index "groups", ["name"], name: "index_groups_on_name", unique: true
 
   create_table "markets", force: true do |t|
     t.integer  "rank"

@@ -1,4 +1,5 @@
 Fader::Application.routes.draw do
+  resources :groups
   resources :markets
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

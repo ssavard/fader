@@ -1,0 +1,40 @@
+<% provide(:title, 'All groups') %>
+
+<h1>Television Groups</h1>
+
+<%= button_to "Add Group", new_group_path, :class => "btn btn-primary", :method => :get %>
+
+<div id="groupTable" >
+  
+  <%= will_paginate  %>
+
+<table id="groups" class="table table-bordered table-striped" >
+  
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Web</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+    <tr>
+      <td><%= link_to group.name, group %>
+      <td><%= group.description %></td>
+      <td><%= group.address %></td>
+      <td><%= group.phone %></td>
+      <td><%= link_to group.web, group.web, :target => "_blank" %></td>
+      
+      
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+</div>

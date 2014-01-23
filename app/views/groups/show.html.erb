@@ -1,0 +1,23 @@
+<% provide(:title, @group.name) %>
+
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @group.name %>
+      </h1>
+      <p>Description: <%= @group.description %></p>
+      <p>Phone: <%= @group.phone %></p>
+      <p>Web: <%= link_to @group.web, @group.web, :target => "_blank" %></p>
+      <p>Address: <%= @group.address %></p>
+      <p>Longitude: <%= @group.longitude %></p>
+      <p>Latitude: <%= @group.latitude %></p>
+      <%= button_to "Edit", edit_group_path(@group), :class => "btn btn-primary", :method => :get %>
+      
+      <% if current_user.admin? %>
+        <%= button_to "Delete", @group, :class => "btn btn-primary", method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </section>
+  </aside>
+</div>
