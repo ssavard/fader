@@ -22,12 +22,50 @@
       <% end %>
     </section>
   </aside>
+
+
+
+<div class="span8">
+
+<% if @market.stations.any? %>
+  <h3>Stations (<%= @market.stations.count %>)</h3>
+  
+  <table id="stations" class="table table-bordered table-striped" >
+  <thead>
+    <tr>
+      <th>Call</th>
+      <th>Channel</th>
+      <th>Affiliation</th>
+      <th>Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for @station in @market.stations %>
+    <tr>
+      <td><%= link_to @station.call, @station %>
+      <td><%= @station.channel %></td>
+      
+      <td><%= link_to @station.affiliate.name, @station.affiliate %></td>
+      <td><%= link_to @station.group.name, @station.group %></td>
+      
+      
+      
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+</div>
 </div>
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    
+    <% if @market.stations.any? %>
+     markers = handler.addMarkers(<%=raw @hash.to_json %>);
+     handler.bounds.extendWith(markers);
+     handler.fitMapToBounds();
+    <% else %>
     markers = handler.addMarkers([
       {
         "lat": <%= @market.latitude %>,
@@ -38,6 +76,9 @@
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(10);
+    <% end %>
+    
+    
   });
 </script>
 

@@ -1,4 +1,5 @@
 Fader::Application.routes.draw do
+  resources :stations
   resources :groups
   resources :markets
   resources :users

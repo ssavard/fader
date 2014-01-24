@@ -1,0 +1,43 @@
+<% provide(:title, 'All stations') %>
+
+<h1>Television Stations</h1>
+
+<%= button_to "Add Station", new_station_path, :class => "btn btn-primary", :method => :get %>
+
+<div id="groupTable" >
+  
+  <%= will_paginate  %>
+
+<table id="stations" class="table table-bordered table-striped" >
+  
+  <thead>
+    <tr>
+      <th>Call</th>
+      <th>Channel</th>
+      <th>Market</th>
+      <th>Affiliation</th>
+      <th>Group</th>
+      <th>Priority</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @stations.each do |station| %>
+    <tr>
+      <td><%= link_to station.call, station %>
+      <td><%= station.channel %></td>
+      <td><%= link_to station.market.name, station.market %></td>
+      <td><%= link_to station.affiliate.name, station.affiliate %></td>
+      <td><%= link_to station.group.name, station.group %></td>
+      <td><%= station.priority %></td>
+      
+      
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+</div>

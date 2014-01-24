@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140123025052) do
+ActiveRecord::Schema.define(version: 20140123211318) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -42,6 +42,31 @@ ActiveRecord::Schema.define(version: 20140123025052) do
   add_index "markets", ["latitude"], name: "index_markets_on_latitude"
   add_index "markets", ["longitude"], name: "index_markets_on_longitude"
   add_index "markets", ["rank"], name: "index_markets_on_rank", unique: true
+
+  create_table "stations", force: true do |t|
+    t.string   "call"
+    t.integer  "channel"
+    t.string   "name"
+    t.string   "description"
+    t.text     "note"
+    t.integer  "priority"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "web"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "group_id"
+    t.integer  "affiliate_id"
+    t.integer  "market_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stations", ["affiliate_id"], name: "index_stations_on_affiliate_id"
+  add_index "stations", ["group_id"], name: "index_stations_on_group_id"
+  add_index "stations", ["latitude"], name: "index_stations_on_latitude"
+  add_index "stations", ["longitude"], name: "index_stations_on_longitude"
+  add_index "stations", ["market_id"], name: "index_stations_on_market_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

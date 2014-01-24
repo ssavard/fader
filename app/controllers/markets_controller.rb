@@ -4,6 +4,13 @@ class MarketsController < ApplicationController
 
   def show
     @market = Market.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@market.stations) do |station, marker|
+     marker.lat station.latitude
+     marker.lng station.longitude
+     marker.title station.call
+     marker.infowindow station.call
+    end
+    
   end
   
   def index

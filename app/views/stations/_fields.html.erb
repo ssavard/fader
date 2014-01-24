@@ -1,0 +1,45 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :call %>
+<%= f.text_field :call %>
+
+<%= f.label :channel %>
+<%= f.number_field :channel %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :description %>
+<%= f.text_field :description %>
+
+<%= f.label :priority %>
+<%= f.number_field :priority %>
+
+<%= f.label :address %>
+<%= f.text_field :address %>
+
+<%= f.label :phone %>
+<%= f.telephone_field :phone %>
+
+<%= f.label :web %>
+<%= f.url_field :web %>
+
+<%= f.label :longitude %>
+<%= f.text_field :longitude %>
+      
+<%= f.label :latitude %>
+<%= f.text_field :latitude %>
+
+<%= f.label :group_id %>
+<%= f.collection_select :group_id, Group.all, :id, :name %>
+
+<%= f.label :affiliate_id %>
+<%= f.collection_select :affiliate_id, Group.all, :id, :name %>
+
+<%= f.label :market_id %>
+<%= f.collection_select :market_id, Market.all, :id, :name %>
+
+<%= f.label :note %>
+<%= f.text_area :note, size: "60x12"%>
+
+ 

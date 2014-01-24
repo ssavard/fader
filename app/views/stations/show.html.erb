@@ -1,0 +1,31 @@
+<% provide(:title, @station.name) %>
+
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @station.call %>
+      </h1>
+      <p>Channel: <%= @station.channel %></p>
+      <p>Name: <%= @station.name %></p>
+      <p>Description: <%= @station.description %></p>
+      <p>Phone: <%= @station.phone %></p>
+      <p>Web: <%= link_to @station.web, @station.web, :target => "_blank" %></p>
+      <p>Address: <%= @station.address %></p>
+      <p>Longitude: <%= @station.longitude %></p>
+      <p>Latitude: <%= @station.latitude %></p>
+      <p>Priority: <%= @station.priority %></p>
+      <p>Group: <%= @station.group.name %></p>
+      <p>Affiliate: <%= @station.affiliate.name %></p>
+      <p>Market: <%= @station.market.name %></p>
+      <p>Note: <%= @station.note %></p>
+      <%= button_to "Edit", edit_station_path(@station), :class => "btn btn-primary", :method => :get %>
+      
+      <% if current_user.admin? %>
+        <%= button_to "Delete", @station, :class => "btn btn-primary", method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </section>
+  </aside>
+</div>
+
