@@ -4,21 +4,21 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= @station.call %>
+        <%= @station.call %> <%= @station.channel %>
       </h1>
-      <p>Channel: <%= @station.channel %></p>
+      <p><%= @station.address %></p>
+      <p><%= @station.phone %></p>
+      <p><%= link_to @station.web, @station.web, :target => "_blank" %></p>
+      <p>Group: <%= link_to @station.group.name, @station.group %></p>
+      <p>Affiliation: <%= link_to @station.affiliate.name, @station.affiliate %></p>
+      <p>Market: <%= link_to @station.market.name, @station.market %></p>
       <p>Name: <%= @station.name %></p>
       <p>Description: <%= @station.description %></p>
-      <p>Phone: <%= @station.phone %></p>
-      <p>Web: <%= link_to @station.web, @station.web, :target => "_blank" %></p>
-      <p>Address: <%= @station.address %></p>
+      <p>Priority: <%= @station.priority %></p>
+      <p>Note: <%= @station.note %></p>
       <p>Longitude: <%= @station.longitude %></p>
       <p>Latitude: <%= @station.latitude %></p>
-      <p>Priority: <%= @station.priority %></p>
-      <p>Group: <%= @station.group.name %></p>
-      <p>Affiliate: <%= @station.affiliate.name %></p>
-      <p>Market: <%= @station.market.name %></p>
-      <p>Note: <%= @station.note %></p>
+      
       <%= button_to "Edit", edit_station_path(@station), :class => "btn btn-primary", :method => :get %>
       
       <% if current_user.admin? %>
