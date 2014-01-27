@@ -13,12 +13,14 @@
       <h1>
         <%= @group.name %>
       </h1>
+      <p><%= @group.address %></p>
+      <p><%= @group.phone %></p>
       <p>Description: <%= @group.description %></p>
       <p>Priority: <%= @group.priority %></p>
       <p>Note: <%= @group.note %></p>
-      <p>Phone: <%= @group.phone %></p>
+      
       <p>Web: <%= link_to @group.web, @group.web, :target => "_blank" %></p>
-      <p>Address: <%= @group.address %></p>
+      
       
       <%= button_to "Edit", edit_group_path(@group), :class => "btn btn-primary", :method => :get %>
       
@@ -102,6 +104,8 @@
 </div>
   
 </div>
+
+
 
 <script type="text/javascript">
   handler = Gmaps.build('Google');

@@ -200,13 +200,19 @@ input {
   }
 }
 
-/* market table */
+/* market index */
 
-#marketTable {
-  position:absolute;
-  right:30px;
-  top:100px;
-  width: 200px;
+.markets {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 5px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
 }
 
 /* maps */
@@ -214,9 +220,3 @@ input {
 #map label { width: auto; display:inline; }
 #map img { max-width: none; }
 
-.map1 {
-  
-  
-  
-  
-}

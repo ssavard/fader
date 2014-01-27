@@ -9,38 +9,31 @@
 
 <%= button_to "Add Market", new_market_path, :class => "btn btn-primary", :method => :get %>
 
-  
-<div class=map1 id="map" style='width: 750px; height: 1000px; '></div>
+<div style='width: 750px; float: right'>
+  <div id="map" style='width: 100%; height: 800px; '></div>
+</div>
 
 
 
 
 
-<div id="marketTable" >
+
+<div id="marketlist" style='width: 180px' >
   
   <%= will_paginate :page_links => false %>
-
-<table id="markets" class="table table-bordered table-striped" >
   
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Name</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <% @markets.each do |market| %>
-    <tr>
-      <td><%= market.rank %></td>
-      <td><%= link_to market.name, market %>
+  <ul class="markets">
+  
+  <% @markets.each do |market| %>
+    
+      <li><%= market.rank %>- <%= link_to market.name, market %></li>
       
       
-    </tr>
+      
+    
     <% end %>
-  </tbody>
-</table>
 
+  </ul>
 
 
 </div>
