@@ -16,6 +16,9 @@
       <th>Description</th>
       <th>Address</th>
       <th>Phone</th>
+      <th>Stations Owned</th>
+      <th>Stations Affiliated</th>
+      <th>Priority</th>
       <th>Web</th>
       
     </tr>
@@ -27,6 +30,9 @@
       <td><%= group.description %></td>
       <td><%= group.address %></td>
       <td><%= group.phone %></td>
+      <td><%= group.stations.count %></td>
+      <td><%= group.affiliates.count %></td>
+      <td><%= group.priority %></td>
       <td><%= link_to group.web, group.web, :target => "_blank" %></td>
       
       

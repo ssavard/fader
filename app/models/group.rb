@@ -1,6 +1,6 @@
 class Group < ActiveRecord::Base
-  has_many :stations, inverse_of: :group
-  has_many :affiliates, class_name: "Station", foreign_key: "affiliate_id", inverse_of: :affiliate
+  has_many :stations, inverse_of: :group, dependent: :nullify
+  has_many :affiliates, class_name: "Station", foreign_key: "affiliate_id", inverse_of: :affiliate, dependent: :nullify
   
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :longitude, :allow_nil => true, numericality: true

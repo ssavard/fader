@@ -5,11 +5,19 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
+    @hash = Gmaps4rails.build_markers(@group.stations) do |station, marker|
+     marker.lat station.latitude
+     marker.lng station.longitude
+     marker.title station.call
+     marker.infowindow station.call
+    end
   end
   
   def index
     
     @groups = Group.paginate(page: params[:page], :per_page => 25).order('name ASC')
+    
+
     
     
   end
@@ -52,7 +60,7 @@ class GroupsController < ApplicationController
 
     def group_params
       params.require(:group).permit(:name, :address, :phone, :web, :description, :longitude,
-                                   :latitude)
+                                   :latitude, :note, :priority)
     end
   
   # Before filters

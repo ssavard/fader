@@ -14,15 +14,16 @@
       <h1>
         <%= @market.name %>
       </h1>
+      <p><%= @market.description %></p>
       <p>Market Rank: <%= @market.rank %></p>
-      <p>Description: <%= @market.description %></p>
-      <p>Longitude: <%= @market.longitude %></p>
-      <p>Latitude: <%= @market.latitude %></p>
+      
+      
       <%= button_to "Edit", edit_market_path(@market), :class => "btn btn-primary", :method => :get %>
       
       <% if current_user.admin? %>
         <%= button_to "Delete", @market, :class => "btn btn-primary", method: :delete,
                                   data: { confirm: "Are you sure?" } %>
+        <p>GPS: <%= @market.latitude %>, <%= @market.longitude %></p>
       <% end %>
     </section>
   </aside>
@@ -48,9 +49,21 @@
     <tr>
       <td><%= link_to @station.call, @station %>
       <td><%= @station.channel %></td>
+      <td>
+        <% if @station.group.nil? %>
+          
+        <% else %>
+          <%= link_to @station.group.name, @station.group %>
+        <% end %>
+      </td>
+      <td>
+        <% if @station.affiliate.nil? %>
+          
+        <% else %>
+          <%= link_to @station.affiliate.name, @station.affiliate %>
+        <% end %>
+      </td>
       
-      <td><%= link_to @station.affiliate.name, @station.affiliate %></td>
-      <td><%= link_to @station.group.name, @station.group %></td>
       
       
       
