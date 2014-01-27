@@ -111,16 +111,29 @@
      handler.bounds.extendWith(markers);
      handler.fitMapToBounds();
     <% else %>
+      <% if @group.latitude.nil? %>
+        markers = handler.addMarkers([
+      {
+        "lat": 0,
+        "lng": 0,
+        
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(1);
+      <% else %>
     markers = handler.addMarkers([
       {
         "lat": <%= @group.latitude %>,
         "lng": <%= @group.longitude %>,
-        "infowindow": "<%= @market.name %>"
+        "infowindow": "<%= @group.name %>"
       }
     ]);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
     handler.getMap().setZoom(10);
+      <% end %>
     <% end %>
     
     
