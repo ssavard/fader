@@ -38,8 +38,7 @@
   <table id="stations" class="table table-bordered table-striped" >
   <thead>
     <tr>
-      <th>Call</th>
-      <th>Channel</th>
+      <th>Station</th>
       <th>Group</th>
       <th>Affiliation</th>
     </tr>
@@ -47,8 +46,7 @@
   <tbody>
     <% for @station in @market.stations %>
     <tr>
-      <td><%= link_to @station.call, @station %>
-      <td><%= @station.channel %></td>
+      <td><%= link_to @station.call, @station %> <%= @station.channel %></td>
       <td>
         <% if @station.group.nil? %>
           
