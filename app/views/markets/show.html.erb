@@ -16,8 +16,9 @@
       </h1>
       <p><%= @market.description %></p>
       <p>Market Rank: <%= @market.rank %></p>
-      
-      
+      <% if @market.complete? %>
+      <p>This market is completed</p>
+      <% end %>
       <%= button_to "Edit", edit_market_path(@market), :class => "btn btn-primary", :method => :get %>
       
       <% if current_user.admin? %>

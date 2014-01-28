@@ -9,8 +9,12 @@ class StationsController < ApplicationController
   
   def index
     
-    @stations = Station.paginate(page: params[:page], :per_page => 25).order('call ASC')
+    #@stations = Station.paginate(page: params[:page], :per_page => 25).order('call ASC')
     
+    
+    @q = Station.search(params[:q])
+    @stations = @q.result
+    @q.build_condition
   end
   
   def new

@@ -14,13 +14,25 @@
 </div>
 
 
-
+<%= search_form_for @q do |f| %>
+  <div class="field" style='width: 180px'>
+    <%= f.label :name_cont, "Name contains" %>
+    <%= f.text_field :name_cont %>
+  </div>
+  <div class="field" style='width: 180px'>
+    <%= f.label :rank_gteq, "Rank between" %>
+    <%= f.text_field :rank_gteq %>
+    <%= f.label :rank_lteq, "and" %>
+    <%= f.text_field :rank_lteq %>    
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
 
 
 
 <div id="marketlist" style='width: 180px' >
   
-  <%= will_paginate :page_links => false %>
+  
   
   <ul class="markets">
   

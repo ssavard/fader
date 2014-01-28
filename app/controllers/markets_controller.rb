@@ -15,7 +15,9 @@ class MarketsController < ApplicationController
   
   def index
     #@markets = Market.all
-    @markets = Market.paginate(page: params[:page], :per_page => 25).order('rank ASC')
+    #@markets = Market.paginate(page: params[:page], :per_page => 25).order('rank ASC')
+    @q = Market.search(params[:q])
+    @markets = @q.result
     @hash = Gmaps4rails.build_markers(@markets) do |market, marker|
      marker.lat market.latitude
      marker.lng market.longitude
@@ -65,7 +67,7 @@ private
 
     def market_params
       params.require(:market).permit(:name, :rank, :description, :longitude,
-                                   :latitude)
+                                   :latitude, :complete)
     end
   
   # Before filters
