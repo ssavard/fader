@@ -6,20 +6,19 @@
 
 <div id="groupTable" >
   
-  <%= will_paginate  %>
+  
 
 <table id="groups" class="table table-bordered table-striped" >
   
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
+      <th><%= sort_link(@q, :name, "Name") %></th>
+      <th><%= sort_link(@q, :description, "Description") %></th>
       <th>Address</th>
-      <th>Phone</th>
       <th>Stations Owned</th>
       <th>Stations Affiliated</th>
-      <th>Priority</th>
-      <th>Web</th>
+      <th><%= sort_link(@q, :priority, "Priority") %></th>
+      
       
     </tr>
   </thead>
@@ -29,11 +28,9 @@
       <td><%= link_to group.name, group %>
       <td><%= group.description %></td>
       <td><%= group.address %></td>
-      <td><%= group.phone %></td>
       <td><%= group.stations.count %></td>
       <td><%= group.affiliates.count %></td>
       <td><%= group.priority %></td>
-      <td><%= link_to group.web, group.web, :target => "_blank" %></td>
       
       
     </tr>

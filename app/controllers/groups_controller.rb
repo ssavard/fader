@@ -15,8 +15,9 @@ class GroupsController < ApplicationController
   
   def index
     
-    @groups = Group.paginate(page: params[:page], :per_page => 25).order('name ASC')
-    
+    #@groups = Group.paginate(page: params[:page], :per_page => 25).order('name ASC')
+    @q = Group.search(params[:q])
+    @groups = @q.result
 
     
     

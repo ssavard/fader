@@ -7,4 +7,5 @@ class Group < ActiveRecord::Base
   validates :latitude, :allow_nil => true, numericality: true
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  
 end
